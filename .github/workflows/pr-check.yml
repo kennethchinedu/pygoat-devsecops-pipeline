@@ -1,7 +1,7 @@
 name: PR check 
 
 on: 
-  pull_request_target:
+  pull_request:
     branches: [master]
 
 permissions:
@@ -14,9 +14,7 @@ jobs:
     steps: 
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
-        with:
-          ref: ${{ github.event.pull_request.head.sha }}
 
-      - run: bash ci/check.sh
-        env:
-          DEMO_SECRET: ${{ secrets.DEMO_SECRET }}
+      - name: run script check 
+        run: bash ci/check.sh
+        
