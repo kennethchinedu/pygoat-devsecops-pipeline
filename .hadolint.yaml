@@ -1,0 +1,2 @@
+ignored:
+  - DL3008   # Apt package versions are intentionally not pinned so security updates are picked up.
