@@ -10,3 +10,4 @@
 | 8 | `introduction/templates/Lab/XSS/xss_lab.html:27` | `{{query\|safe}}` prints user input unescaped → reflected XSS | SAST | SAST scanner (+ DAST) | open |
 | 9 | `pygoat/settings.py:24` | `SECRET_KEY` is hardcoded in the public repository | secrets | secrets scanner | open |
 | 10 | `pygoat/settings.py:29` | `DEBUG = True` exposes detailed error information | config | SAST (+ DAST: a 404 shows the debug page) | open |
+| 11 | `.github/workflows/pr-check.yml` | `pull_request_target` checks out and executes untrusted PR code with access to a repository secret | IaC/config | IaC scanner / GitHub Actions security scanner | open |
