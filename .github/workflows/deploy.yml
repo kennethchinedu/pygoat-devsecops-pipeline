@@ -1,0 +1,41 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master]
+  workflow_dispatch:
+
+permissions:
+  contents: read 
+
+jobs:
+  deploy-staging: 
+
+    
+    runs-on: ubuntu-latest 
+    environment: staging
+    env:
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+
+
+    steps:
+    
+    - name: deploy staging
+      run: echo "token starts with: ${DEPLOY_TOKEN%%-*}"
+
+  deploy-production:
+
+    runs-on: ubuntu-latest 
+    environment: production
+    env:
+        DEPLOY_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+        
+    needs: deploy-staging
+
+    steps: 
+
+    - name: deploy production
+      run: echo "token starts with: ${DEPLOY_TOKEN%%-*}"
+
+
+
