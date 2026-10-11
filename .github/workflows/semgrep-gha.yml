@@ -19,6 +19,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1 
+        with:
+          fetch-depth: 0
       
       - name: Semgrep scan
         run: semgrep scan --config p/python --sarif --output semgrep.sarif
@@ -28,3 +30,12 @@ jobs:
         uses: github/codeql-action/upload-sarif@24c54180a607b1449ed407dd24f251e4e9147c8d  # v4.38.3
         with:
           sarif_file: semgrep.sarif
+
+      - name: Gate on new ERROR findings
+        if: github.event_name == 'pull_request'
+        run: |
+          semgrep scan \
+          --config p/python \
+          --baseline-commit "${{ github.event.pull_request.base.sha }}" \
+          --severity ERROR \
+          --error

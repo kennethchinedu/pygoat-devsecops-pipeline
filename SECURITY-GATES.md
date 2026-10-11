@@ -31,7 +31,7 @@ Security gates prioritize real risk using confidence, and blast radius rather th
 4. **Baseline:** existing findings remain tracked but do not block unrelated PRs.
 5. **KEV override:** KEV vulnerabilities fail regardless of the normal threshold unless security approves an explicit exception.
 
-**Current status:** SAST is at step 1 (warn) since 2026-10-10: Semgrep runs on every PR and push to master, all findings go to Code Scanning, nothing blocks. Step 2 starts when the gate compares against the PR's base commit (`--baseline-commit`).
+**Current status:** SAST is at step 2 (fail new) since 2026-10-11: every finding goes to Code Scanning; a PR fails only on ERROR-severity findings it introduces (`--baseline-commit` = PR base). Proven on PR #8: plant red, removal green.
 
 ## 4. Allowlist (risk acceptance)
 
