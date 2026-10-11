@@ -37,15 +37,21 @@ Security gates prioritize real risk using confidence, and blast radius rather th
 
 The allowlist is version-controlled in the repository and changes require a PR.
 
-Each entry contains five fields:
+SAST allowlist: `.github/security/semgrep-allowlist.json`. It is JSON because the gate reads it with `jq` inside the Semgrep image. It lives under `.github/`, so CODEOWNERS applies to every change. Each entry contains five fields:
 
-```yaml
-- id: CVE-2023-32681
-  location: "requirements.txt"
-  reason: "no proxy in use, upgrade breaks a test"
-  owner: "ken"
-  expires: "2026-12-31"
+```json
+[
+  {
+    "id": "python.lang.security.audit.subprocess-shell-true.subprocess-shell-true",
+    "location": "challenge/views.py",
+    "reason": "false positive: command is built from an app-set container ID, list args, no user input",
+    "owner": "ken",
+    "expires": "2026-12-31"
+  }
+]
 ```
+
+An entry excuses **one rule (`id`) in one file (`location`)**. A line that fires two rules needs two entries; the same rule in another file still fails. `expires` is `YYYY-MM-DD` so it compares correctly as text. The SCA allowlist (J03) will use the same five fields, with a CVE as `id` and the manifest file as `location`.
 
 **Approved by security (CODEOWNERS).**
 
