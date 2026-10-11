@@ -1,0 +1,6 @@
+dockerized_labs/
+.git/
+.github/
+semgrep-rule/
+docs/
+*.md

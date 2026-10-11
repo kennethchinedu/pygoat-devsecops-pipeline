@@ -1,0 +1,48 @@
+name: SCA check
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  snyk-check:
+    runs-on: ubuntu-latest
+
+    env:
+      SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Build image
+        run: docker build -t pygoat:ci .
+
+      - name: Set up Snyk
+        run: npm install -g snyk@1.1308.0
+
+      - name: Run Snyk check
+        run: |
+          snyk container test pygoat:ci \
+            --file=Dockerfile \
+            --policy-path=.snyk \
+            --severity-threshold=high \
+            --fail-on=upgradable \
+            --sarif-file-output=snyk.sarif
+
+      - name: Upload SARIF
+        if: always()
+        uses: github/codeql-action/upload-sarif@24c54180a607b1449ed407dd24f251e4e9147c8d # v4.38.3
+        with:
+          sarif_file: snyk.sarif
+
+      - name: Upload scanned artifact
+        if: always() && github.event_name == 'push'
+        run: snyk container monitor pygoat:ci --file=Dockerfile
+
