@@ -24,6 +24,19 @@ jobs:
       - name: Build image
         run: docker build -t pygoat:ci .
 
+      - name: Generate SBOM
+        run: |
+          docker run --rm \
+            -v /var/run/docker.sock:/var/run/docker.sock \
+            -v "$PWD:/out" \
+            aquasec/trivy:0.75.0 image --format cyclonedx --output /out/sbom.cdx.json pygoat:ci
+
+      - name: Upload SBOM
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          name: sbom-cyclonedx
+          path: sbom.cdx.json
+          
       - name: Set up Snyk
         run: npm install -g snyk@1.1308.0
 
@@ -46,3 +59,4 @@ jobs:
         if: always() && github.event_name == 'push'
         run: snyk container monitor pygoat:ci --file=Dockerfile
 
+      
