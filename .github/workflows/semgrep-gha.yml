@@ -38,4 +38,20 @@ jobs:
           --config p/python \
           --baseline-commit "${{ github.event.pull_request.base.sha }}" \
           --severity ERROR \
-          --error
+          --json --output new.json 
+        
+          expired=$(jq --arg today "$(date +%F)" '[.[] | select(.expires < $today)] | length' .github/security/semgrep-allowlist.json)
+
+          if [ "$expired" -gt 0 ]; then
+            echo "Allowlist has expired entries"
+            exit 1
+          fi
+
+          left=$(jq --slurpfile allow .github/security/semgrep-allowlist.json '[.results[] | select(.check_id as $c | .path as $p | ($allow[0] | any(.id == $c and .location == $p)) | not)] | length' new.json)
+
+          if [ "$left" -gt 0 ]; then
+            echo "New ERROR findings not in the allowlist: $left"
+            exit 1
+          fi
+
+
