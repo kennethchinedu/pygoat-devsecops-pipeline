@@ -21,7 +21,8 @@ jobs:
     steps:
     
     - name: deploy staging
-      run: echo "token starts with: ${DEPLOY_TOKEN%%-*}"
+      run: | 
+        echo "token starts with: ${DEPLOY_TOKEN%%-*}"
 
   deploy-production:
 
@@ -35,7 +36,8 @@ jobs:
     steps: 
 
     - name: deploy production
-      run: echo "token starts with: ${DEPLOY_TOKEN%%-*}"
+      run: | 
+        echo "token starts with: ${DEPLOY_TOKEN%%-*}"
 
 
 
