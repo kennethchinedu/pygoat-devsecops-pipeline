@@ -168,3 +168,27 @@ SOCIALACCOUNT_PROVIDERS = {
 
 SECRET_COOKIE_KEY = "PYGOAT"
 CSRF_TRUSTED_ORIGINS = ["http://127.0.0.1:8000","http://0.0.0.0:8000","http://172.16.189.10"]
+
+# Deployed on ECS (aws-estate-project, J02 must-do 7): configuration from the task's environment.
+# Local runs set none of these and keep the defaults above (SQLite, localhost).
+if os.environ.get("DB_HOST"):
+    DATABASES = {
+        "default": {
+            "ENGINE": "django.db.backends.postgresql",
+            "HOST": os.environ["DB_HOST"],
+            "PORT": os.environ.get("DB_PORT", "5432"),
+            "NAME": os.environ["DB_NAME"],
+            "USER": os.environ["DB_USER"],
+            "PASSWORD": os.environ["DB_PASSWORD"],  # injected from Secrets Manager, never in the task definition
+            "OPTIONS": {"sslmode": "require"},
+        }
+    }
+
+if os.environ.get("ALLOWED_HOSTS"):
+    import socket
+
+    # The ALB health check sends the task's own IP as the Host header.
+    ALLOWED_HOSTS = os.environ["ALLOWED_HOSTS"].split(",") + [socket.gethostbyname(socket.gethostname())]
+
+if os.environ.get("CSRF_TRUSTED_ORIGINS"):
+    CSRF_TRUSTED_ORIGINS = os.environ["CSRF_TRUSTED_ORIGINS"].split(",")
