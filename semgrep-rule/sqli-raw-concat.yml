@@ -1,0 +1,18 @@
+rules:
+  - id: django-raw-sql-from-request
+    languages:
+      - python
+    mode: taint
+    severity: ERROR
+    message: "User input reaches raw SQL through string building: SQL injection. Pass input as parameters, .raw(sql, [value]), or use the ORM."
+    pattern-sources:
+      - pattern-either:
+          - pattern: request.POST.get(...)
+          - pattern: request.GET.get(...)
+          - pattern: request.POST[...]
+          - pattern: request.GET[...]
+          - pattern: request.body
+    pattern-sinks:
+      - patterns:
+          - pattern: $M.objects.raw($QUERY, ...)
+          - focus-metavariable: $QUERY # only the SQL text is the sink, not the parameters
