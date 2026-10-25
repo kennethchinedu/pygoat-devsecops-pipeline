@@ -534,4 +534,201 @@ ignore:
           Owner: ken. Review by expiry.
         expires: 2026-12-31T00:00:00.000Z
         created: 2026-10-11T15:25:08.440Z
+  SNYK-PYTHON-PILLOW-21277713:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277726:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277727:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277734:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277779:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277780:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277782:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277783:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277784:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277785:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277786:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277787:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277793:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277795:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277799:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277801:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21277802:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21279300:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21430900:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21430916:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21430917:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21430991:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21430998:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21430999:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21431000:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21431005:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21431018:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+  SNYK-PYTHON-PILLOW-21431022:
+    - '*':
+        reason: >-
+          A9 lab 2 (views.py ImageMath.eval) intentionally uses vulnerable
+          Pillow 9.4.0; upgrading removes the lab. Owner: ken. Review by expiry.
+        expires: 2026-12-31T00:00:00.000Z
+        created: 2026-10-25T08:36:56.000Z
+
 patch: {}
