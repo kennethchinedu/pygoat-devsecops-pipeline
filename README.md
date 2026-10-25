@@ -32,6 +32,8 @@ First, Clone the repository using GitHub website or git in Terminal
   ### To Download a specific branch
   git clone -b <branch_name> https://github.com/adeyosemanputra/pygoat.git
 ```
+After cloning, run `pre-commit install` to enable the gitleaks secret scan on every commit (hooks are not enabled automatically).
+
 ### Windows Notes (PowerShell users)
 
 - PyGoat is tested primarily on Linux/macOS. Windows users are recommended to use:
