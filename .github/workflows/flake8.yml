@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   build:
-
+    name: Flake8
     runs-on: ubuntu-latest
 
     steps:
