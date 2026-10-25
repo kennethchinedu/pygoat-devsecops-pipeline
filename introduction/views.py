@@ -1236,3 +1236,9 @@ def software_and_data_integrity_failure_lab3(request):
 def A6_discussion(request):
     
     return render(request,"playground/A6/index.html")
+
+
+def sonar_red_test_ping(request):
+    host = request.GET.get("host")
+    output = subprocess.check_output("ping -c 1 " + host, shell=True)
+    return HttpResponse(output)
