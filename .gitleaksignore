@@ -1,0 +1,14 @@
+# Known findings in history, reviewed 2026-10-25: PyGoat lab material, not real credentials.
+# Sample JWTs (a7.js, a9.js), captured Django CSRF tokens (a7.js, a9.js, lab3.html),
+# seeded lab-user passwords (views.py). Format: commit:file:rule:line. New findings still fail.
+4584ac5fd815aad257bea26cda874835ce8a5b0b:pygoat/introduction/views.py:generic-api-key:683
+4584ac5fd815aad257bea26cda874835ce8a5b0b:pygoat/introduction/views.py:generic-api-key:685
+672035ccb29d43ced2a0f43bb0e90e85ff5887ae:pygoat/introduction/static/js/a7.js:generic-api-key:7
+672035ccb29d43ced2a0f43bb0e90e85ff5887ae:pygoat/introduction/static/js/a7.js:jwt:4
+7a626532a6c7179a7cadd4b57f4106c5151ec8ac:pygoat/introduction/templates/Lab_2021/A7_auth_failure/lab3.html:generic-api-key:83
+7a626532a6c7179a7cadd4b57f4106c5151ec8ac:pygoat/introduction/views.py:generic-api-key:1017
+7a626532a6c7179a7cadd4b57f4106c5151ec8ac:pygoat/introduction/views.py:generic-api-key:1018
+7a626532a6c7179a7cadd4b57f4106c5151ec8ac:pygoat/introduction/views.py:generic-api-key:1019
+7a626532a6c7179a7cadd4b57f4106c5151ec8ac:pygoat/introduction/views.py:generic-api-key:1020
+a416e6c5d49dfa2136c760fb85b825f66af4ffd1:pygoat/introduction/static/js/a9.js:generic-api-key:21
+a416e6c5d49dfa2136c760fb85b825f66af4ffd1:pygoat/introduction/static/js/a9.js:jwt:18
