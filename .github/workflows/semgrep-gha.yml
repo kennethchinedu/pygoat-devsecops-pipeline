@@ -23,7 +23,12 @@ jobs:
           fetch-depth: 0
       
       - name: Semgrep scan
-        run: semgrep scan --config p/python --sarif --output semgrep.sarif
+        run: |
+          semgrep scan \
+          --config p/python \
+          --config semgrep-rule/ \
+          --exclude semgrep-rule \
+          --sarif --output semgrep.sarif
 
       - name: Upload SARIF
         if: always()
@@ -36,6 +41,8 @@ jobs:
         run: |
           semgrep scan \
           --config p/python \
+          --config semgrep-rule/ \
+          --exclude semgrep-rule \
           --baseline-commit "${{ github.event.pull_request.base.sha }}" \
           --severity ERROR \
           --json --output new.json 
