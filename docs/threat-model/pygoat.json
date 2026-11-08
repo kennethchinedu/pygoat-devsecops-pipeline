@@ -1,0 +1,1494 @@
+{
+  "version": "2.6.2",
+  "release_version": "",
+  "released_at": "",
+  "summary": {
+    "title": "PyGoat app and pipeline",
+    "owner": "Kenneth Chinedu",
+    "description": "Tutor-written study model (2026-11-08) built on the student's DFD; not credited as J06 must-do 1. Facts checked against pygoat and aws-estate-project.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "Main DFD",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "cells": [
+          {
+            "position": {
+              "x": 415,
+              "y": 70
+            },
+            "size": {
+              "width": 330,
+              "height": 330
+            },
+            "attrs": {
+              "label": {
+                "text": "AWS app (ECS)"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "AWS app (ECS)",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "3a729f59-ac87-49e4-b6b2-3e0a448e6ac5",
+                "1f66149b-e812-496e-8407-2dd5e3a6d935",
+                "fe7707a0-9947-4269-8830-57fb2a4e14a3",
+                "17cc9938-80df-4255-ac29-603784f24550",
+                "40c9fd8a-912d-49c7-825f-353daebbb6b8",
+                "8e6e2a57-097b-4665-b786-35b86e410642",
+                "53f51183-9d85-4c38-b3b4-e2af872bd70c",
+                "423375d2-9b08-44b0-b4f2-941ac05f5e16"
+              ],
+              "containedElements": [
+                "1456e443-0222-4c9a-8fc7-1f24af1c4057"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 928,
+              "y": 70
+            },
+            "size": {
+              "width": 310,
+              "height": 330
+            },
+            "attrs": {
+              "label": {
+                "text": "AWS private subnet (RDS)."
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "630fa127-d91a-4033-813d-c09c76fef450",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "AWS private subnet (RDS).",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false,
+              "crossingFlows": [
+                "1f66149b-e812-496e-8407-2dd5e3a6d935",
+                "53f51183-9d85-4c38-b3b4-e2af872bd70c"
+              ],
+              "containedElements": [
+                "5fa36dff-b1ee-4c85-91de-4db6ff0639c2"
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 80,
+              "y": 70
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "User (browser)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "78ad9f38-af8b-49ef-a587-f660de3ae481"
+                },
+                {
+                  "group": "right",
+                  "id": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ddd990bf-9166-4587-a7c5-940168f3541d"
+                },
+                {
+                  "group": "left",
+                  "id": "0e51d740-71dd-4ec4-9a1b-3f758ef5a39e"
+                }
+              ]
+            },
+            "id": "5e264d8e-50aa-4cca-b02f-d55e4d0ab268",
+            "data": {
+              "type": "tm.Actor",
+              "name": "User (browser)",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "7847889e-589e-4705-9262-b2e6586d3fe8",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "",
+                  "title": "Credential stuffing / password guessing on login",
+                  "type": "Spoofing",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone on the internet. How: automated login attempts with leaked or guessed passwords; PyGoat has no lockout, no MFA and no app-level rate limit. Harmed: user accounts.",
+                  "mitigation": "Prevent: WAF rate-based rule per IP (aws-estate edge/waf.tf:55) - designed, not running. CloudFront is blocked until AWS verifies the account (reference-architecture.md:3), so today this control is designed, not running.\nTicket: app-level throttling on the login view (e.g. django-axes), optional MFA."
+                },
+                {
+                  "id": "6ddea58e-52e9-4215-9b8b-0f82b7548992",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "",
+                  "title": "No record of what a user did",
+                  "type": "Repudiation",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: any user. How: settings.py has no LOGGING config and the views log nothing security-relevant, so a user can deny an action and nobody can prove it. Harmed: investigation and accountability.",
+                  "mitigation": "Ticket: structured security log (login success/failure, password change, admin actions) shipped to CloudWatch Logs with retention; J10 builds detections on it."
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 80,
+              "y": 400
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Admin (browser)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "78ad9f38-af8b-49ef-a587-f660de3ae481"
+                },
+                {
+                  "group": "right",
+                  "id": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ddd990bf-9166-4587-a7c5-940168f3541d"
+                },
+                {
+                  "group": "left",
+                  "id": "0e51d740-71dd-4ec4-9a1b-3f758ef5a39e"
+                }
+              ]
+            },
+            "id": "cf5c8c0a-4474-4835-b48f-af5fdeb2153e",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Admin (browser)",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "e0585910-592f-4a80-a0cb-cecef39bca45",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "",
+                  "title": "Admin account taken over at /admin/",
+                  "type": "Spoofing",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: internet attacker. How: Django admin is published at the predictable path /admin/ (pygoat/urls.py:23) behind password-only login, reachable by the whole internet. Harmed: everything - admin can read and change all data.",
+                  "mitigation": "Ticket: restrict /admin/ (WAF rule allowing only known IPs, or not exposed via CloudFront at all), require MFA for staff, rate-limit admin login."
+                },
+                {
+                  "id": "fb53c5ca-ee89-4b3a-9b17-872ed854d9ba",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "",
+                  "title": "Admin changes only partly traceable",
+                  "type": "Repudiation",
+                  "severity": "Low",
+                  "status": "Open",
+                  "description": "Who: an admin. How: Django admin writes LogEntry rows for changes made in the admin UI, but they live in the same database the admin can edit, and changes made any other way are not logged. Harmed: proof of who changed what.",
+                  "mitigation": "Partly mitigated by Django admin LogEntry. Ticket: copy admin actions to an append-only log outside the app's control (CloudWatch Logs / S3 with Object Lock)."
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 537.5,
+              "y": 650
+            },
+            "size": {
+              "width": 112.5,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Any url"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "78ad9f38-af8b-49ef-a587-f660de3ae481"
+                },
+                {
+                  "group": "right",
+                  "id": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ddd990bf-9166-4587-a7c5-940168f3541d"
+                },
+                {
+                  "group": "left",
+                  "id": "0e51d740-71dd-4ec4-9a1b-3f758ef5a39e"
+                }
+              ]
+            },
+            "id": "068f6fc5-538f-439e-bdbd-4c59365c1d1a",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Any url",
+              "description": "",
+              "isTrustBoundary": false,
+              "outOfScope": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "providesAuthentication": false,
+              "threats": [
+                {
+                  "id": "1d82dd49-1117-4219-ace7-8442675a8747",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "",
+                  "title": "Attacker URL looks external but leads inside",
+                  "type": "Spoofing",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: attacker controlling a domain. How: the URL passes a naive 'is it external?' check, then its DNS resolves to an internal IP or it answers with a redirect to 169.254.170.2; requests follows redirects by default. Harmed: defeats a simple SSRF blocklist.",
+                  "mitigation": "Prevent: resolve the hostname first and check the resolved IP against internal ranges, disable redirects (allow_redirects=False), or use an allowlist. Pairs with the SSRF threat on the process."
+                }
+              ]
+            }
+          },
+          {
+            "position": {
+              "x": 523.75,
+              "y": 140
+            },
+            "size": {
+              "width": 140,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "PyGoat web app"
+              },
+              "body": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 4,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "b0f379e6-f118-4bfe-9aef-56d197144dfe"
+                },
+                {
+                  "group": "right",
+                  "id": "c9a12f65-1149-4090-b126-dc297013c9cc"
+                },
+                {
+                  "group": "bottom",
+                  "id": "66fd0a1c-0caf-4cb9-b36d-f1f4f0376d6c"
+                },
+                {
+                  "group": "left",
+                  "id": "9ae56a10-d28e-41af-bd67-6beb7d925138"
+                }
+              ]
+            },
+            "id": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+            "data": {
+              "type": "tm.Process",
+              "name": "PyGoat web app",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": "",
+              "threats": [
+                {
+                  "id": "bf209753-0ced-43d2-b4e6-06ab7208733c",
+                  "title": "SSRF: user-chosen URL lets attacker reach internal addresses",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Elevation of privilege",
+                  "description": "An attacker submits an internal URL (e.g. the ECS task-metadata address 169.254.170.2) to the URL-fetch feature. The server fetches it and returns the app's IAM role credentials, which the attacker uses to access other AWS resources as the app.",
+                  "mitigation": "1. Prevent: Implement URL allowlisting and block internal IP ranges to prevent SSRF. Apply least-privilege IAM permissions to limit potential damage if credentials are stolen.\n\n2. Detect: Use GuardDuty to identify suspicious use of IAM role credentials, including unexpected access from outside AWS.\n\n3. Respond: Revoke active IAM role sessions to invalidate compromised credentials, then fix the vulnerable application code.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                },
+                {
+                  "id": "53616473-5289-4df2-b015-9c4ffafc401a",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 11,
+                  "score": "",
+                  "title": "Hardcoded SECRET_KEY lets attackers forge signed data",
+                  "type": "Spoofing",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone who reads the public repo. How: SECRET_KEY is hardcoded at settings.py:24 and the ECS deploy does not override it; Django signs password-reset tokens and signed cookies with it, so an attacker can forge them. Harmed: account takeover.",
+                  "mitigation": "Ticket: read SECRET_KEY from Secrets Manager in the deploy block (like DB_PASSWORD), rotate it, remove it from git history. Detected already: PLANTED.md #9, gitleaks/secrets scan (secrets.yml)."
+                },
+                {
+                  "id": "7febe087-d56e-4a2a-9b55-994b80224351",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 12,
+                  "score": "",
+                  "title": "DEBUG = True leaks internals on any error",
+                  "type": "Information disclosure",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone. How: DEBUG = True at settings.py:29 and the deploy does not turn it off; any error or 404 shows stack traces, settings, SQL and URL patterns. Harmed: confidentiality; it maps the app for the next attack.",
+                  "mitigation": "Ticket: DEBUG from an environment variable, False in ECS. Tracked as PLANTED.md #10 (Sonar/Semgrep can flag it)."
+                },
+                {
+                  "id": "39f4212e-9697-4551-aa36-61ecb66e6337",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 13,
+                  "score": "",
+                  "title": "OS command injection runs as root in the container",
+                  "type": "Elevation of privilege",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: logged-in user. How: the command-injection lab passes user input to subprocess with a shell (introduction/views.py:430); the Dockerfile has no USER line, so commands run as root (PLANTED.md #5). Harmed: full control of the container, its task-role credentials and network position.",
+                  "mitigation": "Prevent: never build shell commands from input (argument list, no shell); add a non-root USER to the Dockerfile. Detect: Semgrep/CodeQL in CI (semgrep-gha.yml), hadolint for the missing USER (hadolint.yml)."
+                },
+                {
+                  "id": "73cc0518-60c1-4b3d-bb9a-3b55bcfe02ad",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 14,
+                  "score": "",
+                  "title": "Request floods exhaust the 6 gunicorn workers",
+                  "type": "Denial of service",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: anyone. How: gunicorn runs 6 workers (docker-compose.yml); slow requests - e.g. URL fetches with no timeout - tie each worker up until none are free. Harmed: availability.",
+                  "mitigation": "Prevent: WAF rate limit (designed, not running - see edge ticket); request timeouts (requests.get(url, timeout=5)); gunicorn --timeout; ECS autoscaling with a max."
+                }
+              ],
+              "threatFrequency": {
+                "spoofing": 1,
+                "tampering": 0,
+                "repudiation": 0,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "elevationOfPrivilege": 2
+              }
+            },
+            "children": [
+              "28d7b4c9-0614-44c0-9980-6a19bd625dbb"
+            ]
+          },
+          {
+            "position": {
+              "x": 1010,
+              "y": 160
+            },
+            "size": {
+              "width": 180,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "PostgreSQL database"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 5,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "2b112dbc-524e-4e78-a5e9-b9cd704b4e7c"
+                },
+                {
+                  "group": "right",
+                  "id": "50d088ff-b8b0-4af8-bbb9-ebe0f2af2367"
+                },
+                {
+                  "group": "bottom",
+                  "id": "e2430aa2-b18e-4fc7-8ff3-3b84a0bcad13"
+                },
+                {
+                  "group": "left",
+                  "id": "c0bbe7ee-2370-44f8-a53b-229be8677f84"
+                }
+              ]
+            },
+            "id": "5fa36dff-b1ee-4c85-91de-4db6ff0639c2",
+            "data": {
+              "type": "tm.Store",
+              "name": "PostgreSQL database",
+              "description": "(RDS): users, sessions, lab data",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": true,
+              "storesInventory": true,
+              "threats": [
+                {
+                  "id": "a935079b-40f3-4490-8c07-b2fa73bb7873",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 23,
+                  "score": "",
+                  "title": "Passwords stored in plain text in the lab login table",
+                  "type": "Information disclosure",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone who reads the table (SQLi, a leaked backup, an admin). How: introduction_login keeps passwords unhashed (compared directly in SQL at views.py:157). Harmed: those passwords, and any other site where users reuse them.",
+                  "mitigation": "Ticket: use Django's auth (salted PBKDF2 hashes) instead of the custom table."
+                },
+                {
+                  "id": "a23344cb-a544-45ca-9b43-91f5689e6b07",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 24,
+                  "score": "",
+                  "title": "Data at rest encrypted; backups kept",
+                  "type": "Tampering",
+                  "severity": "Low",
+                  "status": "Mitigated",
+                  "description": "Who: attacker or mistake deleting or altering data at the storage layer. How: snapshot theft, accidental drop. Harmed: data integrity and availability.",
+                  "mitigation": "Mitigated: storage_encrypted = true (postgres/main.tf:33, enforced by the J07 Checkov gate), backups (backup_retention_period, modules/workloads/backup), deletion_protection variable (postgres/main.tf:50)."
+                }
+              ]
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Fetched content",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "0da4a71e-9a17-49d2-800a-7688564bb78b",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 22,
+                  "score": "",
+                  "title": "Fetched page rendered unescaped (stored-in-response XSS)",
+                  "type": "Tampering",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: attacker hosting a page. How: ssrf_lab2.html:23 prints {{response|safe}}, so HTML/JS from the fetched site runs in the user's browser as PyGoat. Harmed: the user's session and actions.",
+                  "mitigation": "Prevent: remove |safe or return the content as plain text; CSP header."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2"
+              ]
+            },
+            "labels": [
+              "Fetched content"
+            ],
+            "id": "3a729f59-ac87-49e4-b6b2-3e0a448e6ac5",
+            "source": {
+              "cell": "068f6fc5-538f-439e-bdbd-4c59365c1d1a",
+              "port": "78ad9f38-af8b-49ef-a587-f660de3ae481"
+            },
+            "target": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "66fd0a1c-0caf-4cb9-b36d-f1f4f0376d6c"
+            },
+            "vertices": [
+              {
+                "x": 680,
+                "y": 510
+              },
+              {
+                "x": 680,
+                "y": 390
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Query results (users, sessions)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "b9fab37e-bc43-4007-bfa1-fa63de74eafd",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 20,
+                  "score": "",
+                  "title": "SQL injection returns other users' data",
+                  "type": "Information disclosure",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: SQL-lab visitor. How: the same injection with UNION SELECT returns rows from other tables, including the introduction_login table that stores passwords in plain text (views.py:157 compares password='...'). Harmed: every account in that table.",
+                  "mitigation": "Same fix as the tampering threat; plus never store plaintext passwords (use Django's hashed auth)."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2",
+                "630fa127-d91a-4033-813d-c09c76fef450"
+              ]
+            },
+            "labels": [
+              "Query results (users, sessions)"
+            ],
+            "id": "1f66149b-e812-496e-8407-2dd5e3a6d935",
+            "source": {
+              "cell": "5fa36dff-b1ee-4c85-91de-4db6ff0639c2",
+              "port": "c0bbe7ee-2370-44f8-a53b-229be8677f84"
+            },
+            "target": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "c9a12f65-1149-4090-b126-dc297013c9cc"
+            },
+            "vertices": [
+              {
+                "x": 970,
+                "y": 230
+              },
+              {
+                "x": 830,
+                "y": 280
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Admin request (/admin)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "6c43e112-17ed-4de5-92cd-2b2db047c927",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 16,
+                  "score": "",
+                  "title": "Admin password and session readable over plain HTTP",
+                  "type": "Information disclosure",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone on the network path. How: same plaintext hop as the user's requests, but the stolen session is an admin's. Harmed: every record in the app.",
+                  "mitigation": "Same ticket as the HTTP request threats (edge stack + SESSION_COOKIE_SECURE / CSRF_COOKIE_SECURE). CloudFront is blocked until AWS verifies the account (reference-architecture.md:3), so today this control is designed, not running."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2"
+              ]
+            },
+            "labels": [
+              "Admin request (/admin)"
+            ],
+            "id": "fe7707a0-9947-4269-8830-57fb2a4e14a3",
+            "source": {
+              "cell": "cf5c8c0a-4474-4835-b48f-af5fdeb2153e",
+              "port": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+            },
+            "target": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "9ae56a10-d28e-41af-bd67-6beb7d925138"
+            },
+            "vertices": [
+              {
+                "x": 240,
+                "y": 399
+              },
+              {
+                "x": 310,
+                "y": 330
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "strokeWidth": 2.5,
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTTP request ",
+              "description": "(login, lab input)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "bfd2cf55-b10c-41ba-ad0b-1317df66fd2a",
+                  "title": "Request modified in transit over plain HTTP",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Tampering",
+                  "description": "Who: an attacker on the network path between the user and the app (shared Wi-Fi, compromised router, ISP). How: this hop has no TLS, so they intercept the HTTP request and change it in flight, e.g. alter submitted form fields or lab input before it reaches PyGoat. Harmed: integrity of the user's actions; the app acts on data the user never sent.",
+                  "mitigation": "Designed, not running. Control: CloudFront viewer_protocol_policy = \"redirect-to-https\" (J02 edge/main.tf:107) forces TLS, so in-flight changes fail integrity checks. CloudFront is blocked until AWS verifies the account, so today this hop is plain HTTP.\nTicket: get the account verified, deploy the edge stack, prove it with curl -I http://<host> returning 301 to https. Then mark Mitigated.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": ""
+                },
+                {
+                  "id": "e47b661d-c091-498e-852d-fc2615119bb2",
+                  "title": "Login and session cookie readable on the wire",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Who: anyone who can see traffic between the user and the app (same Wi-Fi, ISP, compromised router). How: requests go over plain HTTP, so they passively sniff the username/password on login and the Django sessionid cookie on every later request. Harmed: user credentials and sessions; replaying the cookie gives full account takeover.",
+                  "mitigation": "Designed, not running. Control: CloudFront viewer_protocol_policy = \"redirect-to-https\" (J02 edge/main.tf:107) encrypts this hop. CloudFront is blocked until AWS verifies the account, so traffic is plaintext today.\nAlso needed in the app: SESSION_COOKIE_SECURE = True and CSRF_COOKIE_SECURE = True in Django settings so cookies are never sent over HTTP (check PyGoat settings.py).\nTicket: same edge-stack deploy as the tampering threat, plus the two settings. Mark Mitigated once curl shows the 301 and cookies carry the Secure flag.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": ""
+                },
+                {
+                  "id": "c25ea6bf-7cb8-4d32-9b1a-d65de7f4abfa",
+                  "title": "Request flood exhausts the PyGoat task",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Denial of service",
+                  "description": "Who: any internet client or botnet; no login needed. How: send a high volume of HTTP requests (or slow, expensive ones) straight at the app. Harmed: availability; the single ECS task saturates and real users get timeouts or errors, and autoscaling, if any, raises the AWS bill.",
+                  "mitigation": "Designed, not running. Control: WAF rate-based rule limiting requests per IP (J02 edge/waf.tf:55), attached to CloudFront. CloudFront is blocked until AWS verifies the account, so there is no WAF in front of the app today.\nResidual even once live: a per-IP limit does not stop a distributed flood from many IPs.\nTicket: same edge-stack deploy, then verify the ALB is internal (CloudFront VPC origin, reference-architecture.md decision #5) so the WAF cannot be bypassed. Mark Mitigated once a burst test from one IP gets 403s.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": ""
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2"
+              ],
+              "threatFrequency": {
+                "tampering": 1,
+                "informationDisclosure": 1,
+                "denialOfService": 1,
+                "spoofing": 0,
+                "repudiation": 0,
+                "elevationOfPrivilege": 0
+              }
+            },
+            "labels": [
+              "HTTP request "
+            ],
+            "id": "17cc9938-80df-4255-ac29-603784f24550",
+            "source": {
+              "cell": "5e264d8e-50aa-4cca-b02f-d55e4d0ab268",
+              "port": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+            },
+            "target": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "9ae56a10-d28e-41af-bd67-6beb7d925138"
+            },
+            "vertices": [
+              {
+                "x": 410,
+                "y": 100
+              },
+              {
+                "x": 480,
+                "y": 140
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Server-side request (user-chosen URL)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "029f3315-6337-4ac3-8f67-26c3ed33b3b5",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 21,
+                  "score": "",
+                  "title": "URL fetch with no timeout hangs workers",
+                  "type": "Denial of service",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: any logged-in user. How: requests.get(url) at views.py:963 has no timeout; a URL that never answers holds a gunicorn worker indefinitely. Harmed: availability (see the worker-exhaustion threat).",
+                  "mitigation": "Prevent: requests.get(url, timeout=5); cap response size."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2"
+              ]
+            },
+            "labels": [
+              "Server-side request (user-chosen URL)"
+            ],
+            "id": "40c9fd8a-912d-49c7-825f-353daebbb6b8",
+            "source": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "66fd0a1c-0caf-4cb9-b36d-f1f4f0376d6c"
+            },
+            "target": {
+              "cell": "068f6fc5-538f-439e-bdbd-4c59365c1d1a",
+              "port": "78ad9f38-af8b-49ef-a587-f660de3ae481"
+            },
+            "vertices": [
+              {
+                "x": 560,
+                "y": 320
+              },
+              {
+                "x": 500,
+                "y": 470
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "Admin pages (all data)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "886734fc-8e79-438e-910b-7ec7e38fbe3a",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 17,
+                  "score": "",
+                  "title": "Admin pages expose all users' data in transit",
+                  "type": "Information disclosure",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: anyone on the network path. How: admin list pages contain every user's records and travel over plain HTTP until the edge is live. Harmed: all users' data at once.",
+                  "mitigation": "Same edge ticket; plus Cache-Control: no-store on admin pages."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2"
+              ]
+            },
+            "labels": [
+              "Admin pages (all data)"
+            ],
+            "id": "8e6e2a57-097b-4665-b786-35b86e410642",
+            "source": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "66fd0a1c-0caf-4cb9-b36d-f1f4f0376d6c"
+            },
+            "target": {
+              "cell": "cf5c8c0a-4474-4835-b48f-af5fdeb2153e",
+              "port": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+            },
+            "vertices": [
+              {
+                "x": 500,
+                "y": 320
+              },
+              {
+                "x": 430,
+                "y": 360
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SQL query (read/write)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "cc7b0465-14e6-4b29-afe4-d046594a5d8a",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 18,
+                  "score": "",
+                  "title": "SQL injection changes the query",
+                  "type": "Tampering",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: any visitor of the SQL lab. How: introduction/views.py:157 joins user input with + into a raw SQL string, so input like ' OR '1'='1 rewrites the query. Harmed: data integrity and login checks.",
+                  "mitigation": "Prevent: Django ORM or parameterised queries. Detect: custom Semgrep taint rule from J04 (semgrep-gha.yml) + Sonar gate. Tracked as PLANTED.md #7."
+                },
+                {
+                  "id": "55337556-89ce-43c3-be7a-2f39588a0502",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 19,
+                  "score": "",
+                  "title": "App-to-database traffic encrypted",
+                  "type": "Information disclosure",
+                  "severity": "Low",
+                  "status": "Mitigated",
+                  "description": "Who: someone inside the VPC sniffing traffic. How: reading queries and results between the task and RDS. Harmed: data in transit.",
+                  "mitigation": "Mitigated: sslmode=require in the deploy settings (settings.py, ECS block); RDS not publicly accessible (aws-estate postgres/main.tf:43)."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2",
+                "630fa127-d91a-4033-813d-c09c76fef450"
+              ]
+            },
+            "labels": [
+              "SQL query (read/write)"
+            ],
+            "id": "53f51183-9d85-4c38-b3b4-e2af872bd70c",
+            "source": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "c9a12f65-1149-4090-b126-dc297013c9cc"
+            },
+            "target": {
+              "cell": "5fa36dff-b1ee-4c85-91de-4db6ff0639c2",
+              "port": "c0bbe7ee-2370-44f8-a53b-229be8677f84"
+            },
+            "vertices": [
+              {
+                "x": 680,
+                "y": 200
+              },
+              {
+                "x": 740,
+                "y": 150
+              },
+              {
+                "x": 910,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "HTML response",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "4e9bede4-8e0d-4db6-b47b-30b7d31aa513",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 15,
+                  "score": "",
+                  "title": "Reflected XSS: user input printed unescaped",
+                  "type": "Tampering",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: attacker who sends a victim a crafted link. How: xss_lab.html:27 prints {{query|safe}}, so script in the query runs in the victim's browser as PyGoat. Harmed: the victim's session and actions (Django's session cookie is HttpOnly by default, so the script acts as the user rather than stealing the cookie).",
+                  "mitigation": "Prevent: remove |safe (Django autoescapes by default); add a Content-Security-Policy header. Detect: Semgrep/CodeQL in CI; ZAP in J05. Tracked as PLANTED.md #8."
+                }
+              ],
+              "trustBoundaryIds": [
+                "fdbb5c0f-3936-4913-a3bb-a8f0bd4adad2"
+              ]
+            },
+            "labels": [
+              "HTML response"
+            ],
+            "id": "423375d2-9b08-44b0-b4f2-941ac05f5e16",
+            "source": {
+              "cell": "1456e443-0222-4c9a-8fc7-1f24af1c4057",
+              "port": "9ae56a10-d28e-41af-bd67-6beb7d925138"
+            },
+            "target": {
+              "cell": "5e264d8e-50aa-4cca-b02f-d55e4d0ab268",
+              "port": "c088f5fc-c15a-41df-9644-e9adcfa5a7d8"
+            },
+            "vertices": [
+              {
+                "x": 350,
+                "y": 215
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "diagramTop": 2,
+    "reviewer": "",
+    "threatTop": 5
+  }
+}
