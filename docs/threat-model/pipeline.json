@@ -1,0 +1,2444 @@
+{
+  "version": "2.6.2",
+  "release_version": "",
+  "released_at": "",
+  "summary": {
+    "title": "PyGoat CI/CD pipeline",
+    "owner": "Kenneth Chinedu",
+    "description": "Supply-chain threat model: GitHub Actions scan, release (cosign + SBOM) and deploy pipeline for PyGoat. Threats: tutor-written study model (2026-11-08) except the two marked 'Reasoned by the student'. Facts checked via gh api and the workflow files.",
+    "id": 0
+  },
+  "detail": {
+    "contributors": [],
+    "diagrams": [
+      {
+        "id": 0,
+        "title": "CI/CD pipeline DFD",
+        "diagramType": "STRIDE",
+        "placeholder": "New STRIDE diagram description",
+        "thumbnail": "./public/content/images/thumbnail.stride.jpg",
+        "version": "2.6.2",
+        "description": "Actors 6, processes 3, stores 3, flows 15, boundaries 2 (B inside A)",
+        "cells": [
+          {
+            "position": {
+              "x": 240,
+              "y": 30
+            },
+            "size": {
+              "width": 830,
+              "height": 770
+            },
+            "attrs": {
+              "label": {
+                "text": "GitHub platform"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -2,
+            "id": "a800640a-6fb2-4ced-bf3c-9d0edaf49ca5",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "GitHub platform",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 480,
+              "y": 380
+            },
+            "size": {
+              "width": 370,
+              "height": 400
+            },
+            "attrs": {
+              "label": {
+                "text": "Privileged: master-only jobs + secrets"
+              }
+            },
+            "visible": true,
+            "shape": "trust-boundary-box",
+            "zIndex": -1,
+            "id": "6c181797-2bf3-4d4d-aa71-e8df162c6036",
+            "data": {
+              "type": "tm.BoundaryBox",
+              "name": "Privileged: master-only jobs + secrets",
+              "description": "",
+              "isTrustBoundary": true,
+              "hasOpenThreats": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 150
+            },
+            "size": {
+              "width": 150,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Maintainer (you)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "3932f9af-c0ca-4044-bd75-2bf073e34a94"
+                },
+                {
+                  "group": "right",
+                  "id": "3aee6418-1771-40c9-81d2-a0c9708853a0"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ac0fe4a0-9226-4d40-b00c-6b8d01a60cd4"
+                },
+                {
+                  "group": "left",
+                  "id": "ebf4851d-ef9f-44e3-bc06-dc5edb6b5ebe"
+                }
+              ]
+            },
+            "id": "65794f59-2ce1-4a58-b5ea-8fe595b75bb9",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Maintainer (you)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 40,
+              "y": 430
+            },
+            "size": {
+              "width": 150,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "External contributor (fork PR)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "14a796a6-3f05-4ff5-8245-3f946c0cc6a9"
+                },
+                {
+                  "group": "right",
+                  "id": "c9bb1bd0-747a-439d-b45f-8fe650215b4c"
+                },
+                {
+                  "group": "bottom",
+                  "id": "4af00b2f-798d-46a0-a955-a2977a3f8cd4"
+                },
+                {
+                  "group": "left",
+                  "id": "8714024c-962f-46e4-b177-e630bcae7c95"
+                }
+              ]
+            },
+            "id": "64b88a17-1663-485c-ae13-2995920d5bec",
+            "data": {
+              "type": "tm.Actor",
+              "name": "External contributor (fork PR)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1130,
+              "y": 60
+            },
+            "size": {
+              "width": 160,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "SonarCloud"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "56a1e4c8-ba32-4f29-9553-2203994b8946"
+                },
+                {
+                  "group": "right",
+                  "id": "b826f7fa-a78f-4789-8b13-a4ee4667d834"
+                },
+                {
+                  "group": "bottom",
+                  "id": "442451b2-0d3f-41a7-805d-e87a92e4f89d"
+                },
+                {
+                  "group": "left",
+                  "id": "2bdc8316-435f-4b10-aa89-c684e38d2d59"
+                }
+              ]
+            },
+            "id": "9037091f-3168-4606-b4b6-925fb7a6d4d3",
+            "data": {
+              "type": "tm.Actor",
+              "name": "SonarCloud",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1130,
+              "y": 200
+            },
+            "size": {
+              "width": 160,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Snyk"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "6162a602-08d8-424b-9ed2-8b76f388ca9d"
+                },
+                {
+                  "group": "right",
+                  "id": "733b738e-67f2-4f6c-b637-d02d4686d521"
+                },
+                {
+                  "group": "bottom",
+                  "id": "5ce6ec73-e4fe-4968-a8cd-617969de9fcc"
+                },
+                {
+                  "group": "left",
+                  "id": "b64adbbb-9369-4fa7-951d-6d60c7d0a34e"
+                }
+              ]
+            },
+            "id": "37c5ab21-89f8-435c-b8eb-910eb28cdd10",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Snyk",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1130,
+              "y": 420
+            },
+            "size": {
+              "width": 170,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Sigstore (Fulcio / Rekor)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "087f25b3-417a-494a-8b68-6fbb228e0657"
+                },
+                {
+                  "group": "right",
+                  "id": "701f3ee8-367e-4ad9-ac40-e3961706f6b3"
+                },
+                {
+                  "group": "bottom",
+                  "id": "e2c73354-0520-4ddd-8ae9-aad15c31e6f2"
+                },
+                {
+                  "group": "left",
+                  "id": "740231d0-41a7-406c-9c73-f89b1d526330"
+                }
+              ]
+            },
+            "id": "5950e21a-0de1-41ae-b7a7-49cee4e1fcb6",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Sigstore (Fulcio / Rekor)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 1360,
+              "y": 620
+            },
+            "size": {
+              "width": 180,
+              "height": 70
+            },
+            "attrs": {
+              "text": {
+                "text": "Image consumer (ECS / anyone pulling)"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "actor",
+            "zIndex": 1,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "0bad72ba-828f-497b-b84b-6b51aecec0a7"
+                },
+                {
+                  "group": "right",
+                  "id": "01b209b6-c209-4dac-8f19-bff3b97e1580"
+                },
+                {
+                  "group": "bottom",
+                  "id": "b4938c06-80af-421d-8bb3-0de789491f26"
+                },
+                {
+                  "group": "left",
+                  "id": "e78d3b33-061d-44d1-88d1-9e439cb1f8b8"
+                }
+              ]
+            },
+            "id": "e1a4fe72-bc71-4de9-9842-dae52188b35d",
+            "data": {
+              "type": "tm.Actor",
+              "name": "Image consumer (ECS / anyone pulling)",
+              "description": "",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "providesAuthentication": false
+            }
+          },
+          {
+            "position": {
+              "x": 560,
+              "y": 110
+            },
+            "size": {
+              "width": 130,
+              "height": 130
+            },
+            "attrs": {
+              "text": {
+                "text": "CI scan jobs"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "cbe58c79-de86-4e73-87ea-2977da8254be"
+                },
+                {
+                  "group": "right",
+                  "id": "e9a8324b-a029-42d3-8151-e2c27cad8507"
+                },
+                {
+                  "group": "bottom",
+                  "id": "d978b983-4733-472b-a23a-37b8dba011c4"
+                },
+                {
+                  "group": "left",
+                  "id": "b428209a-ecb5-488a-b1d1-90d6033621bb"
+                }
+              ]
+            },
+            "id": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+            "data": {
+              "type": "tm.Process",
+              "name": "CI scan jobs",
+              "description": "Runners for flake8, hadolint, Semgrep, gitleaks, Sonar, Snyk on PRs and pushes",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "5e0dc715-6e8c-4fe8-9430-82d36bacc1b6",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 4,
+                  "score": "",
+                  "title": "A third-party action is swapped for malicious code",
+                  "type": "Tampering",
+                  "severity": "High",
+                  "status": "Mitigated",
+                  "description": "Who: whoever compromises an action's repository (e.g. tj-actions/changed-files, March 2025). How: a version tag like @v4 is moved to a malicious commit; every workflow using the tag runs it. Harmed: everything the job can reach - code, tokens, artifacts.",
+                  "mitigation": "Mitigated: every 'uses:' is pinned to a full 40-character commit SHA (checked 2026-11-08; fix 5f45b6b, PLANTED.md #1). Keep current with Dependabot/Renovate PRs that update the SHA."
+                },
+                {
+                  "id": "603a0407-3f2a-4015-bc3c-103372f2d8d6",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 5,
+                  "score": "",
+                  "title": "Scanner gate skipped or made to pass",
+                  "type": "Tampering",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: a collaborator. How: edits a scan workflow (add continue-on-error, narrow the paths, --soft-fail) in the same PR as the risky code; the gate goes green on code it never really checked. Harmed: every later stage trusts a meaningless green.",
+                  "mitigation": "Prevent: enforce CODEOWNERS review on /.github/ and keep the scan checks in the ruleset's required_status_checks. Detect: review diffs to workflow files as security changes."
+                }
+              ],
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 520,
+              "y": 420
+            },
+            "size": {
+              "width": 120,
+              "height": 120
+            },
+            "attrs": {
+              "text": {
+                "text": "Release job"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "bb86ad61-5edc-4c92-9fbf-f3b008f56209"
+                },
+                {
+                  "group": "right",
+                  "id": "25cea84d-9732-4370-909d-109484ab6bce"
+                },
+                {
+                  "group": "bottom",
+                  "id": "056560c2-d9da-489a-8f0c-35e70892bc9a"
+                },
+                {
+                  "group": "left",
+                  "id": "a220578e-f4de-4092-bca0-1a0aad5e78a9"
+                }
+              ]
+            },
+            "id": "e0d8ec27-79a7-4a4a-8083-35810382a14e",
+            "data": {
+              "type": "tm.Process",
+              "name": "Release job",
+              "description": "On master: build image, push, sign with cosign, attach SBOM",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "e10a01ab-056e-45de-9dfc-0bfca89ae426",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 7,
+                  "score": "",
+                  "title": "Release job token can publish anything to GHCR",
+                  "type": "Elevation of privilege",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: anyone who gets code into master. How: release.yml has packages: write and id-token: write; whatever is on master is built, pushed and signed as if trusted. Harmed: the registry - a malicious image gets a valid signature, because the signature proves where it was built, not that the code is good.",
+                  "mitigation": "Prevent: protect master (see Git repository threat); keep permissions per job, not workflow-wide; production environment approval before deploy (production has required_reviewers). Know the limit: cosign proves provenance, not safety."
+                }
+              ],
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 700,
+              "y": 600
+            },
+            "size": {
+              "width": 120,
+              "height": 120
+            },
+            "attrs": {
+              "text": {
+                "text": "Deploy jobs"
+              },
+              "body": {
+                "stroke": "#333333",
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "process",
+            "zIndex": 2,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "b913ed5d-f7f2-4f4f-8f1c-dce15201cf20"
+                },
+                {
+                  "group": "right",
+                  "id": "d16c5111-42c9-47af-8ff0-b51008dbd273"
+                },
+                {
+                  "group": "bottom",
+                  "id": "9f3159cb-0946-4c0e-bc94-b3ac91dbdf16"
+                },
+                {
+                  "group": "left",
+                  "id": "5be7a41e-1d40-4fc5-ba4d-23755b7f652a"
+                }
+              ]
+            },
+            "id": "d119a8c6-7484-4c55-a0c3-3f5972d8f5fd",
+            "data": {
+              "type": "tm.Process",
+              "name": "Deploy jobs",
+              "description": "Staging, then production (environment: gates)",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "020ac827-67b2-452f-82aa-81dc06c14e1f",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": "",
+                  "title": "Part of DEPLOY_TOKEN printed to public logs",
+                  "type": "Information disclosure",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone - the repo is public, so its Actions logs are readable by everyone. How: deploy.yml echoes \"token starts with: ${DEPLOY_TOKEN%%-*}\"; GitHub masks the whole secret, not a piece of it. Harmed: part of a production credential is public, which shrinks what is left to guess and may reveal the token type/issuer. [Reasoned by the student 2026-11-08.]",
+                  "mitigation": "Prevent: remove the echo; never print any part of a secret. Respond: rotate DEPLOY_TOKEN now (it has been in public logs). Better: replace the static token with OIDC to the cloud, so there is no long-lived secret at all."
+                }
+              ],
+              "handlesCardPayment": false,
+              "handlesGoodsOrServices": false,
+              "isWebApplication": false,
+              "privilegeLevel": ""
+            }
+          },
+          {
+            "position": {
+              "x": 290,
+              "y": 300
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "Git repository"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "50db92ab-5649-471a-8a99-a4b909dd11a5"
+                },
+                {
+                  "group": "right",
+                  "id": "d4c3cf37-1f4b-475e-b5d3-1145f3b82e10"
+                },
+                {
+                  "group": "bottom",
+                  "id": "19037039-2bf9-44aa-90a7-8c0382dfe8f2"
+                },
+                {
+                  "group": "left",
+                  "id": "ee89bb2b-9525-481f-83f1-2225ae6241fa"
+                }
+              ]
+            },
+            "id": "9152c1ef-d640-4fb7-bee2-0f456ec3c8ee",
+            "data": {
+              "type": "tm.Store",
+              "name": "Git repository",
+              "description": "Source code and the workflow files themselves",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "threats": [
+                {
+                  "id": "9ae13d7f-f6bb-4ccd-9685-7f3d10d07ca9",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 6,
+                  "score": "",
+                  "title": "Code reaches master without a second person",
+                  "type": "Tampering",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: any collaborator, or the repo admin. How: the require-pr ruleset (no deletion, no force-push, PR + required checks) needs 0 approvals, and RepositoryRole can bypass it; a single account can merge its own change. Harmed: integrity of master, which feeds the release and deploy.",
+                  "mitigation": "Partly mitigated: ruleset 'require-pr' active on the default branch (blocks force-push and deletion, requires checks). Ticket: 1 required approval + code-owner review once there is a second maintainer; remove or log bypass; require signed commits."
+                }
+              ],
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": false,
+              "storesCredentials": false,
+              "storesInventory": false
+            }
+          },
+          {
+            "position": {
+              "x": 500,
+              "y": 690
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "GitHub Actions secrets"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "8beebc90-2596-4290-8264-62c4756a6f62"
+                },
+                {
+                  "group": "right",
+                  "id": "4e333328-ee63-401e-a6c3-6fdc38713781"
+                },
+                {
+                  "group": "bottom",
+                  "id": "ca906510-9ddc-4c7f-a01f-80385e06a7cc"
+                },
+                {
+                  "group": "left",
+                  "id": "2f2da861-3dfa-4248-bfc9-e89defe20d5b"
+                }
+              ]
+            },
+            "id": "bf4660c3-d698-456d-9c62-2af3bdfe6208",
+            "data": {
+              "type": "tm.Store",
+              "name": "GitHub Actions secrets",
+              "description": "SONAR_TOKEN, SNYK_TOKEN, DEPLOY_TOKEN",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [],
+              "isALog": false,
+              "isEncrypted": true,
+              "isSigned": false,
+              "storesCredentials": true,
+              "storesInventory": false
+            }
+          },
+          {
+            "position": {
+              "x": 880,
+              "y": 470
+            },
+            "size": {
+              "width": 170,
+              "height": 60
+            },
+            "attrs": {
+              "text": {
+                "text": "GHCR registry"
+              },
+              "topLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              },
+              "bottomLine": {
+                "strokeWidth": 1.5,
+                "strokeDasharray": null
+              }
+            },
+            "visible": true,
+            "shape": "store",
+            "zIndex": 3,
+            "ports": {
+              "groups": {
+                "top": {
+                  "position": "top",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "right": {
+                  "position": "right",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "bottom": {
+                  "position": "bottom",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                },
+                "left": {
+                  "position": "left",
+                  "attrs": {
+                    "circle": {
+                      "r": 4,
+                      "magnet": true,
+                      "stroke": "#5F95FF",
+                      "strokeWidth": 1,
+                      "fill": "#fff",
+                      "style": {
+                        "visibility": "hidden"
+                      }
+                    }
+                  }
+                }
+              },
+              "items": [
+                {
+                  "group": "top",
+                  "id": "5143cac1-265a-47ae-ac9e-076716760fbc"
+                },
+                {
+                  "group": "right",
+                  "id": "799189c7-436c-454e-9710-61e3be80d075"
+                },
+                {
+                  "group": "bottom",
+                  "id": "11d12898-4196-4f66-a669-1f4488345b02"
+                },
+                {
+                  "group": "left",
+                  "id": "d4b22272-bff9-4a29-b72c-6c919f005aa1"
+                }
+              ]
+            },
+            "id": "c6f8f3c8-c1a7-4d5a-bb45-9a5622343ae2",
+            "data": {
+              "type": "tm.Store",
+              "name": "GHCR registry",
+              "description": "Image + cosign signature + SBOM attestation",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "threats": [
+                {
+                  "id": "e54c9856-bd3b-4607-9111-0796ba693151",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 9,
+                  "score": "",
+                  "title": "Image is public",
+                  "type": "Information disclosure",
+                  "severity": "Low",
+                  "status": "Mitigated",
+                  "description": "Who: anyone. How: the GHCR package visibility is public. Harmed: anyone can pull and inspect the image - which is intended for this open-source training app.",
+                  "mitigation": "Accepted/by design for an open-source app: no secrets are baked into the image (gitleaks + Trivy scan it). A private app would set the package to private."
+                }
+              ],
+              "isALog": false,
+              "isEncrypted": false,
+              "isSigned": true,
+              "storesCredentials": false,
+              "storesInventory": false
+            }
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "push to master",
+              "description": "Flow 1",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "push to master"
+            ],
+            "id": "7eb6dfe2-f88d-4a74-9487-97951a9c27e4",
+            "source": {
+              "cell": "65794f59-2ce1-4a58-b5ea-8fe595b75bb9",
+              "port": "3aee6418-1771-40c9-81d2-a0c9708853a0"
+            },
+            "target": {
+              "cell": "9152c1ef-d640-4fb7-bee2-0f456ec3c8ee",
+              "port": "ee89bb2b-9525-481f-83f1-2225ae6241fa"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "pull request (fork code)",
+              "description": "Flow 2",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "8e9b4204-9d85-47bf-a27c-3a6d2e282f0b",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 3,
+                  "score": "",
+                  "title": "Fork PR code runs with secrets (pull_request_target)",
+                  "type": "Tampering",
+                  "severity": "High",
+                  "status": "Mitigated",
+                  "description": "Who: anyone on GitHub. How: pr-check.yml used pull_request_target and checked out the fork's code, running untrusted code in the base repo's context with a secret (PLANTED.md #11, J00). Harmed: repository secrets and write token.",
+                  "mitigation": "Mitigated: switched to pull_request (pr-check.yml:4), fix e949c50; proven red 37241098182 -> green 37242094519 in J00. Fork PRs now run without secrets, outside Box B."
+                }
+              ]
+            },
+            "labels": [
+              "pull request (fork code)"
+            ],
+            "id": "2c28eff8-b5c1-4439-af0f-ae90db671e36",
+            "source": {
+              "cell": "64b88a17-1663-485c-ae13-2995920d5bec",
+              "port": "c9bb1bd0-747a-439d-b45f-8fe650215b4c"
+            },
+            "target": {
+              "cell": "9152c1ef-d640-4fb7-bee2-0f456ec3c8ee",
+              "port": "19037039-2bf9-44aa-90a7-8c0382dfe8f2"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "code + workflow files",
+              "description": "Flow 3",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "code + workflow files"
+            ],
+            "id": "86bf693c-1699-4308-90d5-93c607ca7ba8",
+            "source": {
+              "cell": "9152c1ef-d640-4fb7-bee2-0f456ec3c8ee",
+              "port": "d4c3cf37-1f4b-475e-b5d3-1145f3b82e10"
+            },
+            "target": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "b428209a-ecb5-488a-b1d1-90d6033621bb"
+            },
+            "vertices": [
+              {
+                "x": 510,
+                "y": 260
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "SONAR_TOKEN, SNYK_TOKEN",
+              "description": "Flow 4",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "dadab1e0-6cfa-4f47-a3bd-8b94d300d693",
+                  "title": "Scan tokens stolen by code running in CI",
+                  "status": "Open",
+                  "severity": "Medium",
+                  "type": "Information disclosure",
+                  "description": "Who: anyone with write access to the repo, a stolen collaborator account or token, or a compromised Action or dependency. Fork PRs don't get secrets unless a workflow uses pull_request_target.\nHow: a branch PR or push edits a workflow or a script the job runs, or adds a malicious package, so the job sends the token somewhere or prints it base64-encoded.\nHarmed: with the tokens, an attacker can fake a passing quality gate, read SonarCloud results and code, see unpatched vulnerabilities in Snyk, and mute findings.",
+                  "mitigation": "GitHub withholds secrets from fork PRs, which covers forks only. Needed:\n- require code-owner review for .github/workflows/ (CODEOWNERS)\n- never use pull_request_target with fork code\n- pin third-party Actions to a commit SHA\n- use a SonarCloud token limited to project analysis, and a Snyk service-account token\n- rotate both tokens if one is ever exposed",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": ""
+                },
+                {
+                  "id": "058fd62d-a2f1-4e7a-9930-4ff723502b03",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 1,
+                  "score": "",
+                  "title": "Scan tokens exfiltrated by a collaborator's PR",
+                  "type": "Information disclosure",
+                  "severity": "Medium",
+                  "status": "Open",
+                  "description": "Who: anyone with write access, or a stolen collaborator account (fork PRs do not receive secrets). How: a PR from a branch in this repo changes a workflow or a script the job runs so it sends SONAR_TOKEN / SNYK_TOKEN to an outside server (GitHub masks secrets in logs, so exfiltration goes over the network). Harmed: the vulnerability lists in SonarCloud/Snyk (an attack roadmap) and the gates themselves (issues marked accepted). [Reasoned by the student 2026-11-08.]",
+                  "mitigation": "Prevent: require code-owner review on /.github/ (CODEOWNERS exists but the require-pr ruleset needs 0 approvals, so it is not enforced); least-privilege tokens (Sonar 'Execute Analysis' only); rotate. Detect: alert on workflow-file changes."
+                }
+              ]
+            },
+            "labels": [
+              "SONAR_TOKEN, SNYK_TOKEN"
+            ],
+            "id": "58012463-fd15-4534-af50-d96b72c874a8",
+            "source": {
+              "cell": "bf4660c3-d698-456d-9c62-2af3bdfe6208",
+              "port": "2f2da861-3dfa-4248-bfc9-e89defe20d5b"
+            },
+            "target": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "d978b983-4733-472b-a23a-37b8dba011c4"
+            },
+            "vertices": [
+              {
+                "x": 470,
+                "y": 600
+              },
+              {
+                "x": 480,
+                "y": 330
+              },
+              {
+                "x": 610,
+                "y": 290
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "source code for analysis",
+              "description": "Flow 5",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "source code for analysis"
+            ],
+            "id": "6bf72860-f555-4d95-8db1-df97761c0d29",
+            "source": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "cbe58c79-de86-4e73-87ea-2977da8254be"
+            },
+            "target": {
+              "cell": "9037091f-3168-4606-b4b6-925fb7a6d4d3",
+              "port": "2bdc8316-435f-4b10-aa89-c684e38d2d59"
+            },
+            "vertices": [
+              {
+                "x": 820,
+                "y": 60
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "quality gate result",
+              "description": "Flow 6",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "quality gate result"
+            ],
+            "id": "e9dd4817-2e06-48b2-a8ad-cba37c15830b",
+            "source": {
+              "cell": "9037091f-3168-4606-b4b6-925fb7a6d4d3",
+              "port": "442451b2-0d3f-41a7-805d-e87a92e4f89d"
+            },
+            "target": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "e9a8324b-a029-42d3-8151-e2c27cad8507"
+            },
+            "vertices": [
+              {
+                "x": 980,
+                "y": 150
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "dependency manifest",
+              "description": "Flow 7",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "dependency manifest"
+            ],
+            "id": "804e991d-2c26-4d6c-b749-1f27128d7605",
+            "source": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "e9a8324b-a029-42d3-8151-e2c27cad8507"
+            },
+            "target": {
+              "cell": "37c5ab21-89f8-435c-b8eb-910eb28cdd10",
+              "port": "b64adbbb-9369-4fa7-951d-6d60c7d0a34e"
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 220
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "vulnerability results",
+              "description": "Flow 8",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "vulnerability results"
+            ],
+            "id": "d6ac7808-0b43-462f-80fd-a74ca74d5f78",
+            "source": {
+              "cell": "37c5ab21-89f8-435c-b8eb-910eb28cdd10",
+              "port": "5ce6ec73-e4fe-4968-a8cd-617969de9fcc"
+            },
+            "target": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "d978b983-4733-472b-a23a-37b8dba011c4"
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 320
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "check status + SARIF",
+              "description": "Flow 9",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "check status + SARIF"
+            ],
+            "id": "f6d2f231-494e-4a48-b405-65602573b2ee",
+            "source": {
+              "cell": "0ffc6b6a-f123-4ca3-b72d-0536a2f512e4",
+              "port": "b428209a-ecb5-488a-b1d1-90d6033621bb"
+            },
+            "target": {
+              "cell": "9152c1ef-d640-4fb7-bee2-0f456ec3c8ee",
+              "port": "50db92ab-5649-471a-8a99-a4b909dd11a5"
+            },
+            "vertices": [
+              {
+                "x": 400,
+                "y": 190
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "master commit",
+              "description": "Flow 10",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "master commit"
+            ],
+            "id": "51fb9ece-9868-4378-a194-0ec7d6d04192",
+            "source": {
+              "cell": "9152c1ef-d640-4fb7-bee2-0f456ec3c8ee",
+              "port": "19037039-2bf9-44aa-90a7-8c0382dfe8f2"
+            },
+            "target": {
+              "cell": "e0d8ec27-79a7-4a4a-8083-35810382a14e",
+              "port": "a220578e-f4de-4092-bca0-1a0aad5e78a9"
+            },
+            "vertices": [
+              {
+                "x": 420,
+                "y": 470
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "OIDC token + signing request",
+              "description": "Flow 11",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "fabdd92e-4451-4f43-aada-595568646285",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 10,
+                  "score": "",
+                  "title": "Signing depends on Sigstore being available",
+                  "type": "Denial of service",
+                  "severity": "Low",
+                  "status": "Open",
+                  "description": "Who: none needed - an outage. How: keyless cosign signing needs Fulcio and Rekor online; if they are down, the release job fails. Harmed: releases stop (safe failure: nothing unsigned ships).",
+                  "mitigation": "Accepted: fail closed is the right behaviour; retry on the next run. Note it in the runbook."
+                }
+              ]
+            },
+            "labels": [
+              "OIDC token + signing request"
+            ],
+            "id": "1f616dc7-52e7-4eba-8ade-219b569387b9",
+            "source": {
+              "cell": "e0d8ec27-79a7-4a4a-8083-35810382a14e",
+              "port": "25cea84d-9732-4370-909d-109484ab6bce"
+            },
+            "target": {
+              "cell": "5950e21a-0de1-41ae-b7a7-49cee4e1fcb6",
+              "port": "740231d0-41a7-406c-9c73-f89b1d526330"
+            },
+            "vertices": [
+              {
+                "x": 900,
+                "y": 410
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "short-lived signing certificate",
+              "description": "Flow 12",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "short-lived signing certificate"
+            ],
+            "id": "fda3e53d-351e-48a8-be3c-d6b67353a89f",
+            "source": {
+              "cell": "5950e21a-0de1-41ae-b7a7-49cee4e1fcb6",
+              "port": "e2c73354-0520-4ddd-8ae9-aad15c31e6f2"
+            },
+            "target": {
+              "cell": "e0d8ec27-79a7-4a4a-8083-35810382a14e",
+              "port": "bb86ad61-5edc-4c92-9fbf-f3b008f56209"
+            },
+            "vertices": [
+              {
+                "x": 980,
+                "y": 360
+              },
+              {
+                "x": 640,
+                "y": 370
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "image + signature + SBOM",
+              "description": "Flow 13",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": false,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": []
+            },
+            "labels": [
+              "image + signature + SBOM"
+            ],
+            "id": "c37fe65f-0477-47da-bedf-4dc5378699d7",
+            "source": {
+              "cell": "e0d8ec27-79a7-4a4a-8083-35810382a14e",
+              "port": "056560c2-d9da-489a-8f0c-35e70892bc9a"
+            },
+            "target": {
+              "cell": "c6f8f3c8-c1a7-4d5a-bb45-9a5622343ae2",
+              "port": "d4b22272-bff9-4a29-b72c-6c919f005aa1"
+            },
+            "vertices": [
+              {
+                "x": 720,
+                "y": 570
+              }
+            ]
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "red",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "DEPLOY_TOKEN",
+              "description": "Flow 14",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "45d837e1-32a2-41b6-a5fa-71608e508d2d",
+                  "title": "Part of the deploy token printed into public Actions logs",
+                  "status": "Open",
+                  "severity": "High",
+                  "type": "Information disclosure",
+                  "description": "Who: anyone on the internet. Actions logs on a public repo are public, kept 90 days by default.\nHow: a step prints part of the token, e.g. echo \"${DEPLOY_TOKEN:0:6}...\" to check it's set. GitHub only masks the exact full secret, so a piece or an encoded version prints in plain text. [Replace with the exact line from the workflow.]\nHarmed: the visible part reveals the token type, cuts down guessing, and can be combined with other leaks into the full token, which can deploy any image to production, roll back, or take the service down.",
+                  "mitigation": "Remove the line; never print any part of a secret. Delete old run logs that contain it, then rotate DEPLOY_TOKEN. Keep the token only in the production environment's secrets, behind required reviewers. Longer term, replace it with OIDC so there is no stored token to leak.",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 2,
+                  "score": ""
+                }
+              ]
+            },
+            "labels": [
+              "DEPLOY_TOKEN"
+            ],
+            "id": "4f794143-6cae-4e59-83b8-158aedc0b6a4",
+            "source": {
+              "cell": "bf4660c3-d698-456d-9c62-2af3bdfe6208",
+              "port": "4e333328-ee63-401e-a6c3-6fdc38713781"
+            },
+            "target": {
+              "cell": "d119a8c6-7484-4c55-a0c3-3f5972d8f5fd",
+              "port": "5be7a41e-1d40-4fc5-ba4d-23755b7f652a"
+            },
+            "vertices": []
+          },
+          {
+            "shape": "flow",
+            "attrs": {
+              "line": {
+                "stroke": "#333333",
+                "targetMarker": {
+                  "name": "block"
+                },
+                "sourceMarker": {
+                  "name": ""
+                },
+                "strokeDasharray": null
+              }
+            },
+            "width": 200,
+            "height": 100,
+            "zIndex": 10,
+            "connector": "smooth",
+            "data": {
+              "type": "tm.Flow",
+              "name": "image pull (verify signature)",
+              "description": "Flow 15",
+              "outOfScope": false,
+              "isTrustBoundary": false,
+              "reasonOutOfScope": "",
+              "hasOpenThreats": true,
+              "isBidirectional": false,
+              "isEncrypted": false,
+              "isPublicNetwork": false,
+              "protocol": "",
+              "threats": [
+                {
+                  "id": "cfd62c8f-01cd-4ef8-b868-040bf7221ef5",
+                  "modelType": "STRIDE",
+                  "new": false,
+                  "number": 8,
+                  "score": "",
+                  "title": "Consumer runs an image without checking its signature",
+                  "type": "Tampering",
+                  "severity": "High",
+                  "status": "Open",
+                  "description": "Who: anyone able to push a look-alike image or change a tag. How: images are signed and release.yml's verify job runs cosign verify, but the ECS task (aws-estate fargate-service main.tf:137) just pulls var.image - nothing checks the signature at deploy time. Harmed: production could run an unsigned or replaced image.",
+                  "mitigation": "Prevent: deploy by digest (@sha256:...), not by tag; verify the cosign signature before deploy (a pipeline step, or admission control in J08 with Kyverno verifyImages). Ticket."
+                }
+              ]
+            },
+            "labels": [
+              "image pull (verify signature)"
+            ],
+            "id": "af1abafd-9ade-4324-8948-ab4f8a17783c",
+            "source": {
+              "cell": "c6f8f3c8-c1a7-4d5a-bb45-9a5622343ae2",
+              "port": "799189c7-436c-454e-9710-61e3be80d075"
+            },
+            "target": {
+              "cell": "e1a4fe72-bc71-4de9-9842-dae52188b35d",
+              "port": "e78d3b33-061d-44d1-88d1-9e439cb1f8b8"
+            },
+            "vertices": [
+              {
+                "x": 1220,
+                "y": 600
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "diagramTop": 1,
+    "reviewer": "",
+    "threatTop": 10
+  }
+}
