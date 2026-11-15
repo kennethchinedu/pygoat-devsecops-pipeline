@@ -1,0 +1,65 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: pygoat
+  labels:
+    pod-security.kubernetes.io/enforce: restricted
+
+
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: pygoat
+  namespace: pygoat
+automountServiceAccountToken: false
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pygoat
+  namespace: pygoat
+  labels:
+    app: pygoat
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pygoat
+  template:
+    metadata:
+      labels:
+        app: pygoat
+    spec:
+      serviceAccountName: pygoat
+      securityContext:
+        runAsNonRoot: true
+        runAsUser: 10001
+        seccompProfile:
+          type: RuntimeDefault
+      volumes:
+        - name: tmp
+          emptyDir: {}
+      containers:
+        - name: pygoat
+          image: ghcr.io/kennethchinedu/pygoat-devsecops-pipeline@sha256:80cf8aa83a9b1604bd239b5ee99c5ef2b3b065390fa798fc69ddde215542bd14
+          ports:
+            - containerPort: 8000
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities:
+              drop:
+                - ALL
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: 500m
+              memory: 512Mi
+          volumeMounts:
+            - name: tmp
+              mountPath: /tmp
